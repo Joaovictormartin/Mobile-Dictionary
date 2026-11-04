@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { useFavoritesStore } from '@/features/favorites/favorites-store';
-import { useHistoryStore } from '@/features/history/history-store';
+import { useHistoryStore } from "@/features/history/history-store";
+import { useFavoritesStore } from "@/features/favorites/favorites-store";
 
 export function usePersistedStores() {
   const favoritesHydrated = useFavoritesStore((state) => state.hydrated);
