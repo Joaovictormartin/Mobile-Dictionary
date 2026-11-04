@@ -12,7 +12,7 @@ export async function readStorage<T>(key: string, fallback: T): Promise<T> {
 export async function writeStorage<T>(key: string, value: T): Promise<void> {
   try {
     await AsyncStorage.setItem(key, JSON.stringify(value));
-  } catch {
-    // Persistence should not break navigation when native storage is unavailable.
+  } catch (error) {
+    console.error("Error writing to storage:", error);
   }
 }
