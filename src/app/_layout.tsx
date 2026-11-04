@@ -1,15 +1,7 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
+import { QueryClientProvider } from '@tanstack/react-query';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 30,
-      gcTime: 1000 * 60 * 60 * 24,
-      retry: 1,
-    },
-  },
-});
+import { queryClient } from '@/constants/query-client';
 
 export default function RootLayout() {
   return (
