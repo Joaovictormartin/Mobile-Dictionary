@@ -6,19 +6,20 @@ import { colors } from '@/theme/colors';
 
 interface WordCardProps {
   word: string;
-  favorite: boolean;
+  favorite?: boolean;
   onPress: () => void;
 }
 
 export const WordCard = memo(function WordCard({
   word,
-  favorite,
   onPress,
+  favorite = false,
 }: WordCardProps) {
   return (
     <Pressable onPress={onPress} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
       <Text style={styles.word}>{word}</Text>
       {favorite && <MaterialIcons name="star" size={18} color={colors.warm} style={styles.star} />}
+
     </Pressable>
   );
 });
@@ -48,5 +49,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 8,
     right: 10
+  },
+  deleteButton: {
+    position: 'absolute',
+    right: 10,
+    bottom: 9
   },
 });

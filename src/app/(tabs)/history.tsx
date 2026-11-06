@@ -13,12 +13,22 @@ export default function HistoryScreen() {
   const hydrated = usePersistedStores();
   const history = useHistoryStore((state) => state.history);
 
+  const clearHistory = useHistoryStore((state) => state.clearHistory);
+
   if (!hydrated) return <Screen><Text style={styles.loading}>Carregando histórico...</Text></Screen>;
 
   return (
     <Screen>
-      <Text style={styles.eyebrow}>Visto Recentemente</Text>
-      <Text style={styles.title}>Histórico</Text>
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.eyebrow}>Visto Recentemente</Text>
+          <Text style={styles.title}>Histórico</Text>
+        </View>
+
+        <Pressable style={styles.historyButton} onPress={() => void clearHistory()}>
+          <MaterialIcons name="delete-outline" size={24} color={colors.accent} />
+        </Pressable>
+      </View>
 
       {history.length === 0 ? (
         <EmptyState title="Nada por aqui ainda" message="As palavras que você consultar aparecerão nesta lista." />
@@ -43,6 +53,12 @@ export default function HistoryScreen() {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingTop: 18,
+  },
   eyebrow: {
     color: colors.accent,
     fontSize: 11,
@@ -56,6 +72,14 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     marginTop: 5,
     marginBottom: 20
+  },
+  historyButton: {
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    backgroundColor: colors.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   list: {
     gap: 10,

@@ -83,7 +83,7 @@ export default function WordDetailsScreen() {
           </View>
         )}
 
-        <Text style={styles.sectionTitle}>Meanings</Text>
+        <Text style={styles.sectionTitle}>Significados</Text>
 
         {entry.meanings.map((meaning, meaningIndex) => (
           <View key={`${meaning.partOfSpeech}-${meaningIndex}`} style={styles.meaning}>

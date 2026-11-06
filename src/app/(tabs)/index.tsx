@@ -1,10 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { MaterialIcons } from '@react-native-vector-icons/material-icons';
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
 import { Screen } from '@/components/screen';
 import { WordCard } from '@/components/word-card';
+import { useAuthStore } from '@/features/auth/auth-store';
 import { usePersistedStores } from '@/hooks/use-persisted-stores';
 import { ErrorState, LoadingState } from '@/components/state-view';
 import { useFavoritesStore } from '@/features/favorites/favorites-store';
@@ -13,6 +15,7 @@ import { useWordList, WORD_PAGE_SIZE } from '@/features/words/hooks/use-words';
 export default function WordListScreen() {
   const router = useRouter();
   const hydrated = usePersistedStores();
+  const logout = useAuthStore((state) => state.logout);
   const { data, isLoading, isError, refetch } = useWordList();
   const favorites = useFavoritesStore((state) => state.favorites);
 
@@ -32,6 +35,13 @@ export default function WordListScreen() {
           <Text style={styles.eyebrow}>Dicionário de Inglês</Text>
           <Text style={styles.title}>Explore palavras</Text>
         </View>
+
+        <Pressable
+          style={styles.logoutButton}
+          onPress={() => void logout()}
+          accessibilityLabel="Sair da conta">
+          <MaterialIcons name="logout" size={22} color={colors.accent} />
+        </Pressable>
       </View>
 
       <Text style={styles.subtitle}>Descubra uma palavra nova todos os dias.</Text>
@@ -107,17 +117,13 @@ const styles = StyleSheet.create({
     marginTop: 7,
     marginBottom: 20
   },
-  historyButton: {
+  logoutButton: {
     width: 44,
     height: 44,
     borderRadius: 14,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  historyIcon: {
-    color: colors.accent,
-    fontSize: 25
   },
   search: {
     height: 52,
