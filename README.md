@@ -4,6 +4,20 @@ Aplicativo mobile para descobrir palavras em ingles, consultar significados, ouv
 
 This is a challenge by [Coodesh](https://coodesh.com/).
 
+## Screenshots
+
+<p align="center">
+  <img src="./assets/images/mock/photo%2001.png" width="220" alt="Tela inicial" />
+  <img src="./assets/images/mock/photo%2002.png" width="220" alt="Busca de palavras" />
+  <img src="./assets/images/mock/photo%2003.png" width="220" alt="Detalhes da palavra" />
+</p>
+<p align="center">
+  <img src="./assets/images/mock/photo%2004.png" width="220" alt="Pronuncia da palavra" />
+  <img src="./assets/images/mock/photo%2005.png" width="220" alt="Palavras favoritas" />
+  <img src="./assets/images/mock/photo%2006.png" width="220" alt="Historico de consultas" />
+  <img src="./assets/images/mock/photo%2007.png" width="220" alt="Tela de autenticacao" />
+</p>
+
 ## Tecnologias
 
 - React Native, Expo SDK 58, Expo Router e TypeScript
