@@ -2,7 +2,7 @@
 
 Aplicativo mobile para descobrir palavras em ingles, consultar significados, ouvir a pronuncia e manter favoritos e historico de consultas.
 
-This is a challenge by Coodesh.
+This is a challenge by [Coodesh](https://coodesh.com/).
 
 ## Tecnologias
 
@@ -19,9 +19,29 @@ This is a challenge by Coodesh.
 - Fonetica, IPA, classes gramaticais, definicoes, exemplos, sinonimos, antonimos e origem quando disponiveis
 - Favoritos sem duplicidade e persistidos localmente
 - Historico ordenado pela consulta mais recente
+- Cadastro, login e logout com sessao local
+- Favoritos e historico isolados por usuario
 - Cache de detalhes por palavra
 - Pronuncia por sintese de voz
 - Estados de carregamento, erro, retry e lista vazia
+
+## Testes
+
+Os testes cobrem:
+
+- Consulta e validacao de palavras pela API
+- Tratamento de falhas da API
+- Cache de consultas por palavra
+- Adicao, remocao e persistencia de favoritos
+- Registro, ordenacao e persistencia do historico
+- Cadastro, login e validacao de credenciais
+- Interacao do componente de palavra
+
+Execute a suite com:
+
+```bash
+yarn test
+```
 
 ## Arquitetura
 
@@ -67,4 +87,5 @@ yarn test
 
 - O arquivo de palavras e uma fonte remota do GitHub; a primeira abertura depende de conectividade.
 - A Free Dictionary API nem sempre fornece audio, etimologia ou todos os campos. Quando o audio nao existe, o aplicativo usa Expo Speech.
-- O teste automatizado sera configurado na etapa de validacao final do desafio.
+- O dicionario remoto depende de conectividade na primeira carga.
+- As contas sao locais ao dispositivo; esta implementacao nao substitui um backend de autenticacao em producao.
