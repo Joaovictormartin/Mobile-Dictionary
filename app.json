@@ -8,7 +8,7 @@
     "scheme": "mobiledictionary",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/images/icon.png"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,9 +28,9 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#062A78",
+          "image": "./assets/images/splash.png",
+          "resizeMode": "cover"
         }
       ],
       "@react-native-vector-icons/material-icons"

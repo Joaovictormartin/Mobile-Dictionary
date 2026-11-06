@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
@@ -33,7 +34,11 @@ export function AuthForm({ mode }: { mode: 'login' | 'register' }) {
   return (
     <View style={styles.container}>
       <View style={styles.brand}>
-        <Text style={styles.logo}>Aa</Text>
+        <Image
+          source={require('@/assets/images/icon.png')}
+          contentFit="contain"
+          style={styles.logo}
+        />
         <Text style={styles.title}>{isRegister ? 'Crie sua conta' : 'Bem-vindo de volta'}</Text>
         <Text style={styles.subtitle}>
           {isRegister ? 'Salve suas palavras e acompanhe seu histórico.' : 'Entre para acessar sua coleção de palavras.'}
@@ -91,9 +96,9 @@ const styles = StyleSheet.create({
     marginBottom: 36
   },
   logo: {
-    color: colors.accent,
-    fontSize: 54,
-    fontWeight: '800',
+    width: 96,
+    height: 96,
+    borderRadius: 22,
     marginBottom: 12
   },
   title: {
